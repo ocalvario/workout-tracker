@@ -15,6 +15,7 @@ class WorkoutsController < ApplicationController
         name: params[:name], 
         date: params[:date]
         )
+        current_user.workouts << @workout
        redirect "/workouts/#{@workout.id}" 
     end
 
