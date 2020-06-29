@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
 
   #create
-  
+    
     get "/workouts/new.html" do
       if logged_in?
         erb :"/workouts/new.html"
@@ -21,16 +21,17 @@ class WorkoutsController < ApplicationController
 
   #read
   
-    get "/workouts/:id" do
-      @workout = Workout.find(params[:id])
-      erb :"/workouts/show.html"
-    end
-  
     get "/workouts" do
       @user = current_user
       @workouts = current_user.workouts
       erb :"/workouts/index.html"
     end
+    
+    get "/workouts/:id" do
+      @workout = Workout.find(params[:id])
+      erb :"/workouts/show.html"
+    end
+   
   
   #update
   
