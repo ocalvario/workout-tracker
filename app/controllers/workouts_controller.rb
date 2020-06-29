@@ -42,16 +42,10 @@ class WorkoutsController < ApplicationController
     redirect "/workouts/#{@workout.id}"
   end
 
-  
-# # GET: /workouts/new
-  # post "/workouts/new.html" do
-  #   @workout = Workout.create(name: params[:name], date: params[:date])
-  #   erb :"/workouts/index.html"
-  # end
-
-
-#   # DELETE: /workouts/5/delete
-#   delete "/workouts/:id/delete" do
-#     redirect "/workouts"
-#   end
+  #delete
+  delete "/workouts/:id/delete" do
+    @workout = Workout.find(params[:id])
+    @order.delete
+    redirect "/workouts"
+  end
 end

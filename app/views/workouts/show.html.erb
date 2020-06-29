@@ -1,2 +1,7 @@
 Workout Name: <%= @workout.name%> <br>
 Workout Date: <%= @workout.date%> <br>
+
+<form method="post" action="/workouts/<%= @workout.id %>">
+   <input id="hidden" type="hidden" name="_method" value="DELETE">
+   <input type="submit" value="delete">
+</form>
