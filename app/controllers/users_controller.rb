@@ -7,6 +7,12 @@ class UsersController < ApplicationController
   get "/signup" do
     erb :"/users/new.html"
   end
+  
+   post "/signup" do
+    #params[:username]
+    #params[:password]
+    @user = User.create(username: params[:username], params[:password])
+  end
 
   get "/login" do
     erb :"users/login.html"
