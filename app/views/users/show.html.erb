@@ -4,7 +4,10 @@
 
 <ul><% @user.workouts.each do |workout|%>
  <li> - <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
-  (<%= workout.date %>) </a> </li>
+  (<%= workout.date %>) </a> 
+  <a href="/workouts/<%=workout.id%>/edit">Edit</a>
+  </li>
+  
 </ul>
 <% end %>
 

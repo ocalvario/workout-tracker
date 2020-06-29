@@ -34,7 +34,7 @@ class WorkoutsController < ApplicationController
    
   
   #update
-  
+    
     get "/workouts/:id/edit" do
       @workout = Workout.find(params[:id])  
       erb :"/workouts/edit.html"
