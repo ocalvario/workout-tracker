@@ -32,6 +32,12 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])  
     erb :"/workouts/edit.html"
   end
+  
+  patch "/workouts/:id" do
+    @workout = Workout.find(params[:id])
+    @workout.update()
+    redirect "/workouts/:id"
+  end
 
   
 # # GET: /workouts/new
@@ -40,12 +46,6 @@ class WorkoutsController < ApplicationController
   #   erb :"/workouts/index.html"
   # end
 
-
-
-#   # PATCH: /workouts/5
-#   patch "/workouts/:id" do
-#     redirect "/workouts/:id"
-#   end
 
 #   # DELETE: /workouts/5/delete
 #   delete "/workouts/:id/delete" do

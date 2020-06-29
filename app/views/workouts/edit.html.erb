@@ -1,6 +1,6 @@
 <h1>Edit Your Workout</h1>
 
-<form action="/workouts/#{order.id}" method="POST">
+<form action="/workouts/<%= @workout.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label> New Workout Name </label>
   <input type="text" value="<%=@workout.name %>" name="name"> </br>
