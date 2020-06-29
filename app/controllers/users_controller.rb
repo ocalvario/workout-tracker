@@ -11,6 +11,10 @@ class UsersController < ApplicationController
   get "/login" do
     erb :"users/login.html"
   end 
+  
+  post "/login" do
+    redirect "/workouts"
+  end 
 
   # POST: /users
   post "/users" do
