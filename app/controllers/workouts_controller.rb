@@ -27,7 +27,8 @@ class WorkoutsController < ApplicationController
     end
   
     get "/workouts" do
-      @workouts = Workout.all
+      @user = current_user
+      @workouts = current_user.workouts
       erb :"/workouts/index.html"
     end
   
