@@ -9,15 +9,17 @@ class UsersController < ApplicationController
   end
   
   post "/signup" do
-    @user = User.new(
-      username: params[:username], 
-      password: params[:password]
-      )
-      if @user.username == "" && @user.password == ""
-        redirect "/signup"
-    session[:user_id] = @user.id
-    redirect "/users/#{@user.id}"
-  end
+    if params[:username] == "" && params[:password] == ""
+         redirect "/signup"
+    else
+      @user = User.create(
+        username: params[:username], 
+        password: params[:password]
+        )
+        session[:user_id] = @user.id
+        redirect "/users/#{@user.id}"
+      end
+    end 
   
   get "/login" do
     erb :"users/login.html"
