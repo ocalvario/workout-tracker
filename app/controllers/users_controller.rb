@@ -15,11 +15,6 @@ class UsersController < ApplicationController
     redirect "/users/#{@user.id}"
   end
 
-  # get '/users/#{id}' do
-  #   #erb :'/users/show.html'
-  #   "this is a show page"
-  # end
-
   get "/login" do
     erb :"users/login.html"
   end 
@@ -35,6 +30,7 @@ class UsersController < ApplicationController
 
   # GET: /users/5
   get "/users/:id" do
+    @user = User.find(params[:id])
     erb :"/users/show.html"
   end
 
