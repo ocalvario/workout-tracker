@@ -1,4 +1,4 @@
-class WorkouTsController < ApplicationController
+class WorkoutsController < ApplicationController
 
   # GET: /workouts
   get "/workouts" do

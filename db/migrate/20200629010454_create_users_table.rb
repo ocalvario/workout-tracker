@@ -1,4 +1,5 @@
-corneal scaffold NAMEclass CreateUsersTable < ActiveRecord::Migration
+class CreateUsersTable < ActiveRecord::Migration
   def change
+    
   end
 end

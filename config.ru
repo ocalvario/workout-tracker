@@ -5,5 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
+use ExercisEsController
 use WorkoutsController
 use UsersController
