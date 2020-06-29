@@ -3,8 +3,12 @@ class WorkoutsController < ApplicationController
   #create
   
     get "/workouts/new.html" do
-      erb :"/workouts/new.html"
-    end
+      if logged_in?
+        erb :"/workouts/new.html"
+      else
+        redirect "/login"
+      end
+    end 
     
     post "/workouts" do
       @workout = Workout.create(
