@@ -1,11 +1,7 @@
 <h1> <%= @workout.name%> </h1>
 
 <h2> <%=@workout.date%></h2>
-
-<form method="post" action="/workouts/id">
-   <input id="hidden" type="hidden" name="_method" value="PATCH">
-   <input type="submit" value="Edit">
-</form>
+<h3><a href="<%= @workout.id %>/edit">Edit your workout</a></h3>
 
 <form method="post" action="/workouts/<%= @workout.id %>/delete">
    <input id="hidden" type="hidden" name="_method" value="DELETE">
