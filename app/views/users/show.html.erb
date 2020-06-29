@@ -1,11 +1,15 @@
 <h1> Welcome, <%= @user.username%> </h1>
 
-<h2>You can select from any of the following options:</h2>
+<h3>Prior Workouts Logged: <%= @user.workouts.count %> </h3>
 
-<ul>
-  <li> <a href="/workouts/index.html">See previous workouts</a></li>
-  <li> <a href="/workouts/new.html">Create a new workout</a></li>
+<ul><% @user.workouts.each do |workout|%>
+ <li> - <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
+  (<%= workout.date %>) </a> </li>
 </ul>
+<% end %>
+
+
+
 
 
 
