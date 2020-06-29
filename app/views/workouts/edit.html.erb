@@ -1,11 +1,12 @@
 <h1>Edit Your Workout</h1>
 
-<form action="/workouts" method="POST">
-  <label> Workout Name </label>
-  <input type="text" name="name"> </br>
+<form action="/workouts/#{order.id}" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label> New Workout Name </label>
+  <input type="text" value="<%=@workout.name %>" name="name"> </br>
 
-  <label> Workout Date </label>
-  <input type="text" name="date"> </br>
+  <label> New Workout Date </label>
+  <input type="text" value="<%=@workout.date %>"name="date"> </br>
 
   <input type="submit" value="Create">
 </form>
