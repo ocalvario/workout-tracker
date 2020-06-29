@@ -3,3 +3,11 @@
 <p> <a href='/workouts/new.html'>Add a new workout</a> !</p>
 
 <h2>Workout History</h2>
+
+<% @workouts.each do |workout| %>
+  <%= puts workouts.name %><br />
+  <%= puts workout.date %> <br />
+  <a href="/workouts/<%=workout.id%>/edit">Edit</a>
+  <br />
+  <br />
+<% end %>
