@@ -1,26 +1,28 @@
 class WorkoutsController < ApplicationController
 
-  # GET: /workouts
-  get "/workouts" do
-      @workouts = Workout.all
-    erb :"/workouts/index.html"
-  end
+  # # GET: /workouts
+  # get "/workouts" do
+  #   erb :"/workouts/index.html"
+  # end
 
   # GET: /workouts/new
   get "/workouts/new.html" do
-    @workout = Workout.new  
     erb :"/workouts/new.html"
   end
 
-  # GET: /workouts/new
-  post "/workouts/new.html" do
-    @workout = Workout.create(name: params[:name], date: params[:date])
-    erb :"/workouts/index.html"
-  end
+  # # GET: /workouts/new
+  # post "/workouts/new.html" do
+  #   @workout = Workout.create(name: params[:name], date: params[:date])
+  #   erb :"/workouts/index.html"
+  # end
 
   # POST: /workouts
   post "/workouts" do
-    redirect "/workouts"
+    @workout = Workout.create(
+      name: params[:name], 
+      date: params[:date]
+      )
+      binding.pry
   end
 
 #   # GET: /workouts/5
