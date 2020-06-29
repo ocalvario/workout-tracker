@@ -22,13 +22,14 @@ class WorkoutsController < ApplicationController
       name: params[:name], 
       date: params[:date]
       )
-      binding.pry
+     redirect "/workouts/#{@workout.id}" 
   end
 
-#   # GET: /workouts/5
-#   get "/workouts/:id" do
-#     erb :"/workouts/show.html"
-#   end
+  # GET: /workouts/5
+  get "/workouts/:id" do
+    @workout = Workout.find(params[:id])
+    erb :"/workouts/show.html"
+  end
 
 #   # GET: /workou_ts/5/edit
 #   get "/workouts/:id/edit" do
