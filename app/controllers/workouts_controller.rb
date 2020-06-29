@@ -1,11 +1,11 @@
 class WorkoutsController < ApplicationController
 
-  # GET: /workouts/new
+  #create
+  
   get "/workouts/new.html" do
     erb :"/workouts/new.html"
   end
   
-  # POST: /workouts
   post "/workouts" do
     @workout = Workout.create(
       name: params[:name], 
@@ -14,17 +14,25 @@ class WorkoutsController < ApplicationController
      redirect "/workouts/#{@workout.id}" 
   end
 
-  # GET: /workouts/5
+  #read
+  
   get "/workouts/:id" do
     @workout = Workout.find(params[:id])
     erb :"/workouts/show.html"
   end
 
-  # GET: /workouts
   get "/workouts" do
     @workouts = Workout.all
     erb :"/workouts/index.html"
   end
+  
+  #update
+  
+  get "/workouts/:id/edit" do
+    @workout = Workout.find(params[:id])  
+    erb :"/workouts/edit.html"
+  end
+
   
 # # GET: /workouts/new
   # post "/workouts/new.html" do
@@ -33,10 +41,6 @@ class WorkoutsController < ApplicationController
   # end
 
 
-#   # GET: /workou_ts/5/edit
-#   get "/workouts/:id/edit" do
-#     erb :"/workouts/edit.html"
-#   end
 
 #   # PATCH: /workouts/5
 #   patch "/workouts/:id" do
