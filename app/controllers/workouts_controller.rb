@@ -11,14 +11,14 @@ class WorkoutsController < ApplicationController
   end
 
   # GET: /workouts/new
-  post "/workouts/new" do
+  post "/workouts/new.html" do
     erb :"/workouts/index.html"
   end
 
-#   # POST: /workouts
-#   post "/workouts" do
-#     redirect "/workouts"
-#   end
+  # POST: /workouts
+  post "/workouts" do
+    redirect "/workouts"
+  end
 
 #   # GET: /workouts/5
 #   get "/workouts/:id" do
