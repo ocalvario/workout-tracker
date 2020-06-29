@@ -1,7 +1,9 @@
-<% @workouts.each do |workout|%>
+<h1>Wokrout Tracking</h1>
 
-  Workout Number: <%= workout.id %> <br>
-  Workout Name: <%= workout.name %> <br>
-  Workout Date: <%= workout.date %> <br> <br>
+<h3>Below are the previous workouts you have listed:</h3>
 
+<ul><% @workouts.each do |workout|%>
+ <li> - <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
+  (<%= workout.date %>) </a> </li>
+</ul>
 <% end %>
