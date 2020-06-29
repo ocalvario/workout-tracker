@@ -33,10 +33,13 @@ class WorkoutsController < ApplicationController
     erb :"/workouts/edit.html"
   end
   
-  patch "/workouts/:id" do
+  post "/workouts/:id" do
     @workout = Workout.find(params[:id])
-    @workout.update()
-    redirect "/workouts/:id"
+    @workout.update(
+      name: params[:name], 
+      date: params[:date]
+      )
+    redirect "/workouts/#{@workout.id}"
   end
 
   
