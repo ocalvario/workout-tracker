@@ -32,7 +32,7 @@ class WorkoutsController < ApplicationController
       if current_user == @workout.user
         erb :"/workouts/show.html"
       else
-        erb :"/"
+        redirect "/workouts"
       end
     end  
   
