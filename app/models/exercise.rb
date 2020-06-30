@@ -1,3 +1,3 @@
-class EXERCISE < ActiveRecord::Base
+class Exercise < ActiveRecord::Base
   belongs_to :workout
 end

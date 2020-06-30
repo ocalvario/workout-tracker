@@ -5,15 +5,25 @@ class ExercisesController < ApplicationController
   #   erb :"/exercises/index.html"
   # end
 
+
   #create
   
   get "/exercises/new" do
-    erb :"/exercises/new.html"
+    if logged_in?
+      erb :"/exercises/new.html"
+    else
+      redirect "/login"
+    end 
   end
 
-  # POST: /exercises
   post "/exercises" do
-    redirect "/exercises"
+    @exercise = Exercise.create(
+      name: params[:name],
+      weight: params[:weight],
+      sets: params[:sets],
+      reps: params[:reps],
+      )
+    redirect "/exercises/#{@exercise.id}"
   end
 
   # GET: /exercises/5
