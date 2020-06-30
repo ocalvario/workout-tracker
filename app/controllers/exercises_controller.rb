@@ -53,7 +53,7 @@ class ExercisesController < ApplicationController
   delete '/edit/:id/delete' do
     @exercise = Exercise.find(params[:id])
     @exercise.delete
-    redirect "/workout"
+    redirect "/workouts"
   end
   
 end
