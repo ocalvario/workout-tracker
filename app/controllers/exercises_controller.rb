@@ -37,7 +37,7 @@ class ExercisesController < ApplicationController
     erb :"/exercises/edit.html"
   end
 
-  post "/exercises/:id" do
+  patch "/exercises/:id" do
     @exercise = Exercise.find(params[:id])
      @exercise = Exercise.update(
       name: params[:name],
