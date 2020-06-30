@@ -29,20 +29,30 @@ class ExercisesController < ApplicationController
     redirect "/exercises/#{@exercise.id}"
   end
 
-  # GET: /exercises/5
+  #read 
+  
   get "/exercises/:id" do
     @exercise = Exercise.find(params[:id])
     erb :"/exercises/show.html"
   end
 
-  # GET: /exercises/5/edit
+  #update
+  
   get "/exercises/:id/edit" do
+    @exercise = Exercise.find(params:id)
     erb :"/exercises/edit.html"
   end
 
-  # PATCH: /exercises/5
-  patch "/exercises/:id" do
-    redirect "/exercises/:id"
+  post "/exercises/:id" do
+    @exercise = Exercise.find(params:id)
+     @exercise = Exercise.update(
+      name: params[:name],
+      weight: params[:weight],
+      sets: params[:sets],
+      reps: params[:reps],
+      workout_id: params[:workout_id]
+      )
+    redirect "/exercises/#{@exercise.id}"
   end
 
   # DELETE: /exercises/5/delete
