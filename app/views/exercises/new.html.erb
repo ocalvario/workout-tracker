@@ -13,12 +13,12 @@
   <label> Reps </label>
   <input type="number" name="reps"> </br>
 
-
   <label> Workout does this belong in? </label>
   <select name="workout_id">
     <% current_user.workouts.each do |workout| %>
       <option value=<%=workout.id %>><%= workout.name %></option>
     <% end %>
+    
   </select>
 
   <input type="submit" value="Create">

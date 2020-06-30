@@ -11,6 +11,8 @@ class ExercisesController < ApplicationController
   end
 
   post "/exercises" do
+     @user = current_user
+     id = @user.id
      if params.any? {|k, v| v.empty?}
        redirect "/exercises/new"
      else 
@@ -19,7 +21,8 @@ class ExercisesController < ApplicationController
         weight: params[:weight],
         sets: params[:sets],
         reps: params[:reps],
-        workout_id: params[:workout_id]
+        workout_id: params[:workout_id],
+        user_id: id
         )
       @workout = Workout.find(@exercise.workout_id)
       @workout.exercises << @exercise
@@ -30,8 +33,16 @@ class ExercisesController < ApplicationController
   #read 
   
   get "/exercises/:id" do
+    @user = current_user
+    id = @user.id
     @exercise = Exercise.find(params[:id])
-    erb :"/exercises/show.html"
+    reference = @exercise.user_id
+    if id == reference
+      binding.pry
+      erb :"/exercises/show.html"
+    else
+      redirect "/workouts"
+    end
   end
 
   #update
