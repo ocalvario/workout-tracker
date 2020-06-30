@@ -67,15 +67,8 @@ class WorkoutsController < ApplicationController
   
     delete "/workouts/:id/delete" do
       @workout = Workout.find(params[:id])
-      if current_user == @workout.user
         @workout.destroy
         redirect "/workouts"
-      else
-        redirect "/workouts"
-      end
     end
     
-    post  "/workouts/:id/delete" do
-      redirect "/workouts"
-    end
 end

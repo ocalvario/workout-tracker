@@ -34,11 +34,8 @@ class ExercisesController < ApplicationController
   
   get "/exercises/:id" do
     @user = current_user
-    id = @user.id
     @exercise = Exercise.find(params[:id])
-    reference = @exercise.user_id
-    if id == reference
-      binding.pry
+    if @user.id == @exercise.user_id
       erb :"/exercises/show.html"
     else
       redirect "/workouts"
@@ -48,15 +45,20 @@ class ExercisesController < ApplicationController
   #update
   
   get "/exercises/:id/edit" do
+    @user = current_user
     @exercise = Exercise.find(params[:id])
-    erb :"/exercises/edit.html"
+    if @user.id == @exercise.user_id
+      erb :"/exercises/edit.html"
+    else
+      redirect "/workouts"
+    end
   end
 
   patch "/exercises/:id" do
     @exercise = Exercise.find(params[:id])
      if params.any? {|k, v| v.empty?}
        redirect "/exercises/#{@exercise.id}/edit"
-     else     
+     else
        @exercise.update(
         name: params[:name],
         weight: params[:weight],
