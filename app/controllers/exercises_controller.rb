@@ -11,16 +11,20 @@ class ExercisesController < ApplicationController
   end
 
   post "/exercises" do
-    @exercise = Exercise.create(
-      name: params[:name],
-      weight: params[:weight],
-      sets: params[:sets],
-      reps: params[:reps],
-      workout_id: params[:workout_id]
-      )
-    @workout = Workout.find(@exercise.workout_id)
-    @workout.exercises << @exercise
-    redirect "/exercises/#{@exercise.id}"
+     if params.any? {|k, v| v.empty?}
+       redirect "/exercises/new"
+     else 
+      @exercise = Exercise.create(
+        name: params[:name],
+        weight: params[:weight],
+        sets: params[:sets],
+        reps: params[:reps],
+        workout_id: params[:workout_id]
+        )
+      @workout = Workout.find(@exercise.workout_id)
+      @workout.exercises << @exercise
+      redirect "/exercises/#{@exercise.id}"
+    end 
   end
 
   #read 
@@ -39,14 +43,18 @@ class ExercisesController < ApplicationController
 
   patch "/exercises/:id" do
     @exercise = Exercise.find(params[:id])
-     @exercise = Exercise.update(
-      name: params[:name],
-      weight: params[:weight],
-      sets: params[:sets],
-      reps: params[:reps],
-      workout_id: params[:workout_id]
-      )
-    redirect "/exercises/#{@exercise.id}"
+     if params.any? {|k, v| v.empty?}
+       redirect "/exercises/#{@exercise.id}/edit"
+     else     
+       @exercise = Exercise.update(
+        name: params[:name],
+        weight: params[:weight],
+        sets: params[:sets],
+        reps: params[:reps],
+        workout_id: params[:workout_id]
+        )
+      redirect "/exercises/#{@exercise.id}"
+    end
   end
 
   # delete: 
