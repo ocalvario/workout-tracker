@@ -22,12 +22,15 @@ class ExercisesController < ApplicationController
       weight: params[:weight],
       sets: params[:sets],
       reps: params[:reps],
+      workout_id: params[:workout_id]
       )
+    @exercise.save
     redirect "/exercises/#{@exercise.id}"
   end
 
   # GET: /exercises/5
   get "/exercises/:id" do
+    @exercise = Exercise.find(params[:id])
     erb :"/exercises/show.html"
   end
 
