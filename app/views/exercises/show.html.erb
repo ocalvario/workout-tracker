@@ -10,8 +10,8 @@
 <br>
 <h4><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></h4>
 <br>
-<form method="POST" action="/exercises/<%= @exercise.id %>">
-   <input id="hidden" type="hidden" name="_method" value="DELETE">
-   <input type="submit" value="Delete">
-</form>
+   <form action="/edit/<%= @exercise.id %>/delete" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" name="submit" value="Delete">
+          </form>
 <br>
