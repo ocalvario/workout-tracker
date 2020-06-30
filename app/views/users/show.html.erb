@@ -1,14 +1,15 @@
 <h1> Welcome, <%= @user.username%> </h1>
 
 <h3>Prior Workouts Logged: <%= @user.workouts.count %> </h3>
-
+<br>
 <ul><% @user.workouts.each do |workout|%>
  <li> - <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
   (<%= workout.date %>) </a> 
   </li>
 </ul>
 <% end %>
-
+<br>
+<br>
 <h4> <a href="/workouts/new.html">Add a new workout</a> </h4>
 
 
