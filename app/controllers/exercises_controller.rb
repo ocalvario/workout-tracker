@@ -39,7 +39,7 @@ class ExercisesController < ApplicationController
   #update
   
   get "/exercises/:id/edit" do
-    @exercise = Exercise.find(params:id)
+    @exercise = Exercise.find(params[:id])
     erb :"/exercises/edit.html"
   end
 
