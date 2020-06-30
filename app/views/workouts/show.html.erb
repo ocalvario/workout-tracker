@@ -12,6 +12,8 @@
 
 
 <h3><a href="<%= @workout.id %>/edit">Edit your workout</a></h3>
+<br>
+
 
 <form method="post" action="/workouts/<%= @workout.id %>/delete">
    <input id="hidden" type="hidden" name="_method" value="DELETE">

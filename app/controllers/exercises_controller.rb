@@ -1,11 +1,5 @@
 class ExercisesController < ApplicationController
 
-  # #
-  # get "/exercises" do
-  #   erb :"/exercises/index.html"
-  # end
-
-
   #create
   
   get "/exercises/new" do
@@ -44,7 +38,7 @@ class ExercisesController < ApplicationController
   end
 
   post "/exercises/:id" do
-    @exercise = Exercise.find(params:id)
+    @exercise = Exercise.find(params[:id])
      @exercise = Exercise.update(
       name: params[:name],
       weight: params[:weight],
@@ -55,8 +49,11 @@ class ExercisesController < ApplicationController
     redirect "/exercises/#{@exercise.id}"
   end
 
-  # DELETE: /exercises/5/delete
-  delete "/exercises/:id/delete" do
-    redirect "/exercises"
+  # delete: 
+  delete '/exercises/:id/' do
+    @exercise = Exercise.find(params[:id])
+    @exercise.destroy
+    redirect "/workout"
   end
+  
 end

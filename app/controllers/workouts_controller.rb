@@ -59,7 +59,7 @@ class WorkoutsController < ApplicationController
   
     delete "/workouts/:id/delete" do
       @workout = Workout.find(params[:id])
-      @order.destroy
+      @workout.destroy
       redirect "/workouts"
     end
     
