@@ -24,7 +24,8 @@ class ExercisesController < ApplicationController
       reps: params[:reps],
       workout_id: params[:workout_id]
       )
-    @exercise.save
+    @workout = Workout.find(@exercise.workout_id)
+    @workout.exercises << @exercise
     redirect "/exercises/#{@exercise.id}"
   end
 
