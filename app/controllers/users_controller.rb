@@ -13,21 +13,20 @@ class UsersController < ApplicationController
   end
   
   post "/signup" do
-    if params[:username] == "" && params[:password] == ""
+    if params.any? {|k, v| v.empty?}
          redirect "/signup"
-    elsif
-      @user = User.create(
+    else
+        @user = User.create(
         username: params[:username], 
         password: params[:password]
-        ).valid?
-        session[:user_id] = @user.id
-        redirect "/users/#{@user.id}"
-        
-    else
-      redirect "/signup"
-        
-      end
-    end 
+        )
+        if @user.valid?
+          session[:user_id] = @user.id
+          redirect "/users/#{@user.id}"
+        else redirect "/login"
+      end 
+    end
+  end 
   
   get "/login" do
     if logged_in?   

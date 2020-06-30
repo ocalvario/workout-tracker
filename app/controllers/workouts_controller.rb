@@ -29,9 +29,12 @@ class WorkoutsController < ApplicationController
     
     get "/workouts/:id" do
       @workout = Workout.find(params[:id])
-      erb :"/workouts/show.html"
-    end
-   
+      if current_user == @workout.user
+        erb :"/workouts/show.html"
+      else
+        erb :"/"
+      end
+    end  
   
   #update
     
