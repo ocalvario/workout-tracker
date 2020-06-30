@@ -43,7 +43,11 @@ class WorkoutsController < ApplicationController
     
     get "/workouts/:id/edit" do
       @workout = Workout.find(params[:id])  
-      erb :"/workouts/edit.html"
+      if current_user == @workout.user
+        erb :"/workouts/edit.html"
+      else
+        redirect "/workouts"
+      end
     end
     
     patch "/workouts/:id" do
@@ -59,8 +63,12 @@ class WorkoutsController < ApplicationController
   
     delete "/workouts/:id/delete" do
       @workout = Workout.find(params[:id])
-      @workout.destroy
-      redirect "/workouts"
+      if current_user == @workout.user
+        @workout.destroy
+        redirect "/workouts"
+      else
+        redirect "/workouts"
+      end
     end
     
     post  "/workouts/:id/delete" do
