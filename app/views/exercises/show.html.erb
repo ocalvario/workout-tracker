@@ -1,3 +1,8 @@
 <h1> <%= @exercise.name%> </h1>
-
-<h2> Total Weight: <%=@exercise.weight%> lbs </h2>
+<br>
+<h2>Workout Details</h2>
+<h4> Total Weight: <%=@exercise.weight%> lbs </h3>
+<h4> Total Sets: x <%=@exercise.sets%> </h3>
+<h4> Reps per Set: x <%=@exercise.reps%> </h3>
+<br>
+<h4><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></h4>
