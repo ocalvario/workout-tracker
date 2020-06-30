@@ -9,12 +9,11 @@
   <li>o <a href="/exercises/<%=exercise.id%>"><%= exercise.name%></a> </li>
   <% end%>
 </ul>
-
-
-<h3><a href="<%= @workout.id %>/edit">Edit your workout</a></h3>
 <br>
+<h2>Options</h2>
 
-
+<button type="button" name="button"><a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a></button>
+<br>
 <form method="post" action="/workouts/<%= @workout.id %>/delete">
    <input id="hidden" type="hidden" name="_method" value="DELETE">
    <input type="submit" value="Delete">
