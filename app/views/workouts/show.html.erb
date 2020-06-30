@@ -1,6 +1,16 @@
 <h1> <%= @workout.name%> </h1>
 
 <h2> <%=@workout.date%></h2>
+<br>
+<h2>Exercises</h2>
+
+<ul>
+  <% @workout.exercises.each do |exercise| %>
+  <li><%=@exercise.name%> </li>
+  <% end%>
+</ul>
+
+
 <h3><a href="<%= @workout.id %>/edit">Edit your workout</a></h3>
 
 <form method="post" action="/workouts/<%= @workout.id %>/delete">
