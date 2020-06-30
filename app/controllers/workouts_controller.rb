@@ -11,12 +11,15 @@ class WorkoutsController < ApplicationController
     end 
     
     post "/workouts" do
-      @workout = Workout.create(
+      if params.any? {|k, v| v.empty?}
+         redirect "/workouts/new.html"
+      else @workout = Workout.create(
         name: params[:name], 
         date: params[:date]
         )
         current_user.workouts << @workout
        redirect "/workouts/#{@workout.id}" 
+      end
     end
 
   #read
