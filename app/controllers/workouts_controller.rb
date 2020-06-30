@@ -52,11 +52,15 @@ class WorkoutsController < ApplicationController
     
     patch "/workouts/:id" do
       @workout = Workout.find(params[:id])
-      @workout.update(
-        name: params[:name], 
-        date: params[:date]
-        )
-      redirect "/workouts/#{@workout.id}"
+      if params.any? {|k, v| v.empty?}
+        redirect "/workouts/#{@workout.id}/edit"
+      else
+        @workout.update(
+          name: params[:name], 
+          date: params[:date]
+          )
+        redirect "/workouts/#{@workout.id}"
+      end
     end
   
   #delete
