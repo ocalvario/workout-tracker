@@ -11,15 +11,13 @@
 </ul>
 <br>
 <h2>Options</h2>
-
-
 <button type="button" name="button"><a href="/exercises/new">Add Exercise</a></button>
 <br>
 <button type="button" name="button"><a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a></button>
 <br>
 <form method="post" action="/workouts/<%= @workout.id %>/delete">
    <input id="hidden" type="hidden" name="_method" value="DELETE">
-   <input type="submit" value="Delete workout">
+   <input type="submit" value="Delete Workout">
 </form>
 <br>
 <button type="button" name="button"><a href="/workouts">Workout Index</a></button>

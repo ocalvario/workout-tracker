@@ -6,13 +6,12 @@
 <h4> Reps per Set: x <%=@exercise.reps%> </h3>
 <br>
 <h2>Options</h2>
-<h4><a href="<%= @exercise.id %>/edit">Edit your workout</a></h4>
-<br>
-<br>
-<h4><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></h4>
+<button type="button" name="button"><a href="<%= @exercise.id %>/edit">Edit Exercise</a></button>
 <br>
    <form action="/edit/<%= @exercise.id %>/delete" method="POST">
             <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" name="submit" value="Delete">
+            <input type="submit" name="submit" value="Delete Exercise">
           </form>
+<br>
+<button type="button" name="button"><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
 <br>
