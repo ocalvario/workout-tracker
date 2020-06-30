@@ -1,11 +1,12 @@
 class ExercisesController < ApplicationController
 
-  # GET: /exercises
-  get "/exercises" do
-    erb :"/exercises/index.html"
-  end
+  # #
+  # get "/exercises" do
+  #   erb :"/exercises/index.html"
+  # end
 
-  # GET: /exercises/new
+  #create
+  
   get "/exercises/new" do
     erb :"/exercises/new.html"
   end
