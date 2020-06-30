@@ -46,7 +46,7 @@ class ExercisesController < ApplicationController
      if params.any? {|k, v| v.empty?}
        redirect "/exercises/#{@exercise.id}/edit"
      else     
-       @exercise = Exercise.update(
+       @exercise.update(
         name: params[:name],
         weight: params[:weight],
         sets: params[:sets],
