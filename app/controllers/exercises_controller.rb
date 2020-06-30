@@ -50,7 +50,7 @@ class ExercisesController < ApplicationController
   end
 
   # delete: 
-  delete '/exercises/:id/' do
+  delete '/exercises/:id/delete' do
     @exercise = Exercise.find(params[:id])
     @exercise.destroy
     redirect "/workout"
