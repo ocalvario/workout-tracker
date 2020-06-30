@@ -5,5 +5,7 @@
 <h4> Total Sets: x <%=@exercise.sets%> </h3>
 <h4> Reps per Set: x <%=@exercise.reps%> </h3>
 <br>
+<h4><a href="<%= @exercise.id %>/edit">Edit your workout</a></h4>
+<br>
+<br>
 <h4><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></h4>
-
