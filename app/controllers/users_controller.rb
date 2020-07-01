@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   
   post "/signup" do
     if params.any? {|k, v| v.empty?}
+       flash[:alert] = "Please enter all required fields"
          redirect "/signup"
     else
         @user = User.create(
@@ -23,7 +24,9 @@ class UsersController < ApplicationController
         if @user.valid?
           session[:user_id] = @user.id
           redirect "/users/#{@user.id}"
-        else redirect "/login"
+        else 
+          flash[:alert] = "Username already in use, please login."
+          redirect "/login"
       end 
     end
   end 
