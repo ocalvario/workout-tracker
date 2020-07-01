@@ -21,8 +21,6 @@
   <br>
   <input type="submit" value="Update">
 </form>
-<br>
- <button class="popping" type="button" name="button"><a class="simple" href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
 <br> 
   <div class="error"
     <div class="flash_alert">
@@ -30,3 +28,5 @@
       <%= flash[:alert] %>
       <% end %>
     </div>
+<br>
+ <button class="popping" type="button" name="button"><a class="simple" href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
