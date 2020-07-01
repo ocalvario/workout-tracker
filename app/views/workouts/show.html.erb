@@ -1,24 +1,21 @@
-<h1> <%= @workout.name%> </h1>
+<h1 class="small"> <%= @workout.name%> </h1>
 
 <h2> <%=@workout.date%></h2>
 <br>
-<h2>Exercises</h2>
+<h2 class="blueish">Exercises</h2>
 
 <ul>
   <% @workout.exercises.each do |exercise| %>
-  <li>o <a href="/exercises/<%=exercise.id%>"><%= exercise.name%></a> </li>
+  <li class="standard"><a href="/exercises/<%=exercise.id%>"><%= exercise.name%></a> </li>
   <% end%>
 </ul>
 <br>
-<h2>Options</h2>
+<h2 class="blueish">Options</h2>
 <button type="button" name="button"><a href="/exercises/new">Add Exercise</a></button>
-<br>
 <button type="button" name="button"><a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a></button>
-<br>
-<form method="post" action="/workouts/<%= @workout.id %>/delete">
+<button><form method="post" action="/workouts/<%= @workout.id %>/delete">
    <input id="hidden" type="hidden" name="_method" value="DELETE">
    <input type="submit" value="Delete Workout">
-</form>
-<br>
+</form> </button>
 <button type="button" name="button"><a href="/workouts">Workout Index</a></button>
 <br>

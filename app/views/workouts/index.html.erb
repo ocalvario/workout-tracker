@@ -1,17 +1,17 @@
-<h1>Workout Tracking</h1>
+<h1 class="small">Workout Tracking</h1>
 
-<h2>Overview</h2>
+<h2 class="blueish">Overview</h2>
 <h3>Below are the previous workouts you have listed:</h3>
 
 <ul><% @workouts.each do |workout|%>
- <li> - <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
+ <li class="standard"><a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
   (<%= workout.date %>) </a> </li>
 </ul>
 <% end %>
 <br>
 
-<h2>Options</h2>
-<button type="button" name="button"><a href="/workouts/new.html">Add Workout</a></button>
+<h2 class="blueish">Options</h2>
+<button type="button" name="button" class="flex"><a href="/workouts/new.html">Add Workout</a></button>
 <br>
 <br>
   <div class="flash_alert">
