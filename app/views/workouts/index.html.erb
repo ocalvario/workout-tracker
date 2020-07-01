@@ -12,3 +12,9 @@
 
 <h2>Options</h2>
 <button type="button" name="button"><a href="/workouts/new.html">Add Workout</a></button>
+<br>
+<br>
+  <div class="flash_alert">
+        <% if flash[:alert] %>
+        <%= flash[:alert] %>
+        <% end %>

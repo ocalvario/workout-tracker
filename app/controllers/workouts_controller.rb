@@ -37,6 +37,7 @@ class WorkoutsController < ApplicationController
       if current_user == @workout.user
         erb :"/workouts/show.html"
       else
+        flash[:alert] = "Access denied"
         redirect "/workouts"
       end
     end  
@@ -48,6 +49,7 @@ class WorkoutsController < ApplicationController
       if current_user == @workout.user
         erb :"/workouts/edit.html"
       else
+        flash[:alert] = "Access denied"
         redirect "/workouts"
       end
     end
