@@ -6,12 +6,14 @@ class WorkoutsController < ApplicationController
       if logged_in?
         erb :"/workouts/new.html"
       else
+        flash[:alert] = "Please login first"
         redirect "/login"
       end
     end 
     
     post "/workouts" do
       if params.any? {|k, v| v.empty?}
+         flash[:alert] = "Please enter all required fields"
          redirect "/workouts/new.html"
       else @workout = Workout.create(
         name: params[:name], 
