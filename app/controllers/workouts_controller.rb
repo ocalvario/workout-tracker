@@ -27,31 +27,46 @@ class WorkoutsController < ApplicationController
   #read
   
     get "/workouts" do
-      @user = current_user
-      @workouts = current_user.workouts
-      erb :"/workouts/index.html"
+       if logged_in?
+        @user = current_user
+        @workouts = current_user.workouts
+        erb :"/workouts/index.html"
+      else
+        flash[:alert] = "Please login first"
+        redirect "/login"
+      end
     end
     
     get "/workouts/:id" do
-      @workout = Workout.find(params[:id])
-      if current_user == @workout.user
-        erb :"/workouts/show.html"
+      if logged_in?
+        @workout = Workout.find(params[:id])
+          if current_user == @workout.user
+            erb :"/workouts/show.html"
+          else
+            flash[:alert] = "Access denied"
+            redirect "/workouts"
+          end
       else
-        flash[:alert] = "Access denied"
-        redirect "/workouts"
+        flash[:alert] = "Please login first"
+        redirect "/login"
       end
     end  
   
   #update
     
     get "/workouts/:id/edit" do
-      @workout = Workout.find(params[:id])  
-      if current_user == @workout.user
-        erb :"/workouts/edit.html"
+      if logged_in?
+        @workout = Workout.find(params[:id])  
+        if current_user == @workout.user
+          erb :"/workouts/edit.html"
+        else
+          flash[:alert] = "Access denied"
+          redirect "/workouts"
+        end
       else
-        flash[:alert] = "Access denied"
-        redirect "/workouts"
-      end
+        flash[:alert] = "Please login first"
+        redirect "/login" 
+      end 
     end
     
     patch "/workouts/:id" do

@@ -9,7 +9,10 @@
   <input type="submit" value="Sign Up">
 </form>
 <br> 
-  <div class="flash_alert">
-        <% if flash[:alert] %>
-        <%= flash[:alert] %>
-        <% end %>
+  <div class="error">
+    <div class="flash_alert">
+      <% if flash[:alert] %>
+      <%= flash[:alert] %>
+      <% end %>
+    </div>
+  </div>
