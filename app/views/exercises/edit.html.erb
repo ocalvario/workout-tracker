@@ -2,16 +2,16 @@
 
 <form action="/exercises/<%= @exercise.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <label> New Exercise Name </label>
+  <label>- New Exercise Name: </label>
   <input type="text" value="<%=@exercise.name %>" name="name"> </br>
-  <label> New Exercise Weight </label>
+  <label>- New Exercise Weight: </label>
   <input type="number" value="<%=@exercise.weight %>" name="weight"> </br>
-  <label> New Exercise Sets </label>
+  <label>- New Exercise Sets: </label>
   <input type="number" value="<%=@exercise.sets %>" name="sets"> </br>
-  <label> New Exercise Reps </label>
+  <label>- New Exercise Reps: </label>
   <input type="number" value="<%=@exercise.reps %>" name="reps"> </br>
 
-  <label> Workout does this belong in? </label>
+  <label>- Associated Workout: </label>
   <select name="workout_id">
     <% current_user.workouts.each do |workout| %>
       <option value=<%=workout.id %>><%= workout.name %></option>
