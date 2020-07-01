@@ -1,19 +1,16 @@
-<h1> <%= @exercise.name%> </h1>
+<h1 class="small"> <%= @exercise.name%> </h1>
 <br>
-<h2>Exercise Details</h2>
+<h2><i style="color:rgb(0,0,139)">Exercise Details</i></h2>
 <ul>
   <li style="list-style-type:square"><u><b>Total Weight</b></u>: <%=@exercise.weight%> lbs</li>
-  <li style="list-style-type:square"><u><b>Total Sets</b></u>: x <%=@exercise.sets%></li>
-  <li style="list-style-type:square"><u><b>Reps per Set</b></u>: x <%=@exercise.reps%></li>
+  <li style="list-style-type:square"><u><b>Total Sets</b></u>:  x <%=@exercise.sets%></li>
+  <li style="list-style-type:square"><u><b>Reps per Set</b></u>:    x <%=@exercise.reps%></li>
 </ul>
 <br>
-<h2>Options</h2>
-<button type="button" name="button"><a href="<%= @exercise.id %>/edit">Edit Exercise</a></button>
-<br>
-   <form action="/edit/<%= @exercise.id %>/delete" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" name="submit" value="Delete Exercise">
-          </form>
-<br>
-<button type="button" name="button"><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
-<br>
+<h2><i style="color:rgb(0,0,139)">Options</i></h2>
+      <button type="button" name="button"><a href="<%= @exercise.id %>/edit">Edit Exercise</a></button>
+       <button> <form action="/edit/<%= @exercise.id %>/delete" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" name="submit" value="Delete Exercise" style="color:red">
+        </form> </button>
+      <button type="button" name="button"><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
