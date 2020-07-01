@@ -1,18 +1,18 @@
-<h1> Welcome, <%= @user.username%>!</h1>
+<h1 class="small"> Welcome, <%= @user.username%>!</h1>
 <br>
-<h2>Workouts Overview</h2>
+<h2 class="blueish">Workouts Overview</h2>
 <h3>Total Workouts Logged: <%= @user.workouts.count %> </h3>
 <br>
 <ul><% @user.workouts.each do |workout|%>
- <li> - <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
+ <li class="standard"> <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
   (<%= workout.date %>) </a> 
   </li>
 </ul>
 <% end %>
 <br>
 <br>
-<h2>Options</h2>
-<button type="button" name="button"><a href="/workouts/new.html">Add Workout</a></button>
+<h2 class="blueish">Options</h2>
+<button type="button" class="popping" name="button"><a class="simple" href="/workouts/new.html">Add Workout</a></button>
 
 
 
