@@ -2,15 +2,15 @@
 <br>
 <h2 class="blueish">Exercise Details</i></h2>
 <ul>
-  <li class><u><b>Total Weight</b></u>: <%=@exercise.weight%> lbs</li>
-  <li style="list-style-type:square"><u><b>Total Sets</b></u>:  x <%=@exercise.sets%></li>
-  <li style="list-style-type:square"><u><b>Reps per Set</b></u>:    x <%=@exercise.reps%></li>
+  <li class="standard"><u><b>Total Weight</b></u>: <%=@exercise.weight%> lbs</li>
+  <li class="standard"><u><b>Total Sets</b></u>:  x <%=@exercise.sets%></li>
+  <li class="standard"><u><b>Reps per Set</b></u>:    x <%=@exercise.reps%></li>
 </ul>
 <br>
 <h2><i style="color:rgb(0,0,139)">Options</i></h2>
-      <button class="popping" type="button" name="button"><a class="simple"  href="<%= @exercise.id %>/edit">Edit Exercise</a></button>
-       <button class="popping"> <form action="/edit/<%= @exercise.id %>/delete" method="POST">
+       <form action="/edit/<%= @exercise.id %>/delete" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" name="submit" value="Delete Exercise" style="color:red">
-        </form> </button>
+        </form>
+      <button class="popping" type="button" name="button"><a class="simple"  href="<%= @exercise.id %>/edit">Edit Exercise</a></button>
       <button class="popping" type="button" name="button"><a class="simple" href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>

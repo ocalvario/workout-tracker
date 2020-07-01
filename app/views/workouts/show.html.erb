@@ -11,11 +11,12 @@
 </ul>
 <br>
 <h2 class="blueish">Options</h2>
+<form method="post" action="/workouts/<%= @workout.id %>/delete">
+   <input id="hidden" type="hidden" name="_method" value="DELETE">
+   <input type="submit" value="Delete Workout" style="color:red">
+</form>
+<br>
 <button class="popping" type="button" name="button"><a class="simple" href="/exercises/new">Add Exercise</a></button>
 <button class="popping" type="button" name="button"><a class="simple" href="/workouts/<%= @workout.id %>/edit">Edit Workout</a></button>
-<button class="popping"><form method="post" action="/workouts/<%= @workout.id %>/delete">
-   <input id="hidden" type="hidden" name="_method" value="DELETE">
-   <input type="submit" value="Delete Workout">
-</form> </button>
 <button class="popping" type="button" name="button"><a class="simple" href="/workouts">Workout Index</a></button>
 <br>
