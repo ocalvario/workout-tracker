@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   get "/signup" do
     if logged_in?
+      flash[:alert] = "Currently logged in, please logout first"
       redirect "/users/#{current_user.id}"
     else
       erb :"/users/new.html"

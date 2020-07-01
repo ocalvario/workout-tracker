@@ -13,7 +13,14 @@
 <br>
 <h2 class="blueish">Options</h2>
 <button type="button" class="popping" name="button"><a class="simple" href="/workouts/new.html">Add Workout</a></button>
-
+<br> 
+  <div class="error">
+    <div class="flash_alert">
+      <% if flash[:alert] %>
+      <%= flash[:alert] %>
+      <% end %>
+    </div>
+  </div>
 
 
 

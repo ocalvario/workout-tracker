@@ -1,30 +1,32 @@
 <h1 class=small>Add a New Exercise</h1>
 
 <form action="/exercises" method="POST">
-  <label> Exercise Name </label>
-  <input type="text" name="name"> </br>
+  <li class="standard"><label><u><b>Exercise Name</u></b>: </label>
+  <input type="text" name="name"> </br>  </li>
 
-  <label> Weight </label>
-  <input type="number" name="weight"> </br>
+  <li class="standard"><label><u><b>Weight</u></b>: </label>
+  <input type="number" name="weight"> </br> </li>
 
-  <label> Sets </label>
-  <input type="number" name="sets"> </br>
+  <li class="standard"><label><u><b>Sets</u></b>: </label>
+  <input type="number" name="sets"> </br> </li>
 
-  <label> Reps </label>
-  <input type="number" name="reps"> </br>
+  <li class="standard"><label><u><b>Reps</u></b>: </label>
+  <input type="number" name="reps"> </br> </li>
 
-  <label> Workout does this belong in? </label>
+  <li class="standard"><label><u><b>Associated Workout</u></b>: </label>
   <select name="workout_id">
     <% current_user.workouts.each do |workout| %>
       <option value=<%=workout.id %>><%= workout.name %></option>
-    <% end %>
+    <% end %> 
     
-  </select>
+  </select> <br> </li>
 
   <input type="submit" value="Create">
 </form>
 <br> 
-  <div class="flash_alert">
-        <% if flash[:alert] %>
-        <%= flash[:alert] %>
-        <% end %>
+  <div class="error"
+    <div class="flash_alert">
+      <% if flash[:alert] %>
+      <%= flash[:alert] %>
+      <% end %>
+    </div>

@@ -72,6 +72,7 @@ class WorkoutsController < ApplicationController
     patch "/workouts/:id" do
       @workout = Workout.find(params[:id])
       if params.any? {|k, v| v.empty?}
+        flash[:alert] = "Please enter all required fields"
         redirect "/workouts/#{@workout.id}/edit"
       else
         @workout.update(

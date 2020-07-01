@@ -35,32 +35,43 @@ class ExercisesController < ApplicationController
   #read 
   
   get "/exercises/:id" do
-    @user = current_user
-    @exercise = Exercise.find(params[:id])
-    if @user.id == @exercise.user_id
-      erb :"/exercises/show.html"
+    if logged_in?
+      @user = current_user
+      @exercise = Exercise.find(params[:id])
+      if @user.id == @exercise.user_id
+        erb :"/exercises/show.html"
+      else
+        flash[:alert] = "Access denied" 
+        redirect "/workouts"
+      end
     else
-      flash[:alert] = "Access denied" 
-      redirect "/workouts"
-    end
+      flash[:alert] = "Please login first"
+      redirect "/login"
+    end  
   end
 
   #update
   
   get "/exercises/:id/edit" do
-    @user = current_user
-    @exercise = Exercise.find(params[:id])
-    if @user.id == @exercise.user_id
-      erb :"/exercises/edit.html"
+    if logged_in?
+      @user = current_user
+      @exercise = Exercise.find(params[:id])
+      if @user.id == @exercise.user_id
+        erb :"/exercises/edit.html"
+      else
+        flash[:alert] = "Access denied" 
+        redirect "/workouts"
+      end
     else
-      flash[:alert] = "Access denied" 
-      redirect "/workouts"
+      flash[:alert] = "Please login first"
+      redirect "/login"
     end
   end
 
   patch "/exercises/:id" do
     @exercise = Exercise.find(params[:id])
      if params.any? {|k, v| v.empty?}
+      flash[:alert] = "Please enter all required fields"
        redirect "/exercises/#{@exercise.id}/edit"
      else
        @exercise.update(

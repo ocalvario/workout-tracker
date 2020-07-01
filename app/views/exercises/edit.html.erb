@@ -3,21 +3,30 @@
 
 <form action="/exercises/<%= @exercise.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <li class="standard"><label><u><b>New Exercise Name</u></b>: </label>
+  <li class="standard"><label><u><b>Revised Exercise Name</u></b>: </label>
   <input type="text" value="<%=@exercise.name %>" name="name"> </br> </li>
-  <li class="standard"><label><u><b>New Exercise Weight</u></b>: </label>
+  <li class="standard"><label><u><b>Revised Exercise Weight</u></b>: </label>
   <input type="number" value="<%=@exercise.weight %>" name="weight"> </br></li>
-  <li class="standard"><label><u><b>New Exercise Sets</u></b>: </label>
+  <li class="standard"><label><u><b>Revised Exercise Sets</u></b>: </label>
   <input type="number" value="<%=@exercise.sets %>" name="sets"> </br></li>
-  <li class="standard"><label><u><b>New Exercise Reps</u></b>: </label>
+  <li class="standard"><label><u><b>Revised Exercise Reps</u></b>: </label>
   <input type="number" value="<%=@exercise.reps %>" name="reps"> </br></li>
 
-  <li class="standard"><label><u><b>Associated Workout</u></b>: </label>
+  <li class="standard"><label><u><b>Revised Associated Workout</u></b>: </label>
   <select name="workout_id">
     <% current_user.workouts.each do |workout| %>
       <option value=<%=workout.id %>><%= workout.name %></option>
     <% end %>
   </select></li>
   <br>
-  <input type="submit" value="Create">
+  <input type="submit" value="Update">
 </form>
+<br>
+ <button class="popping" type="button" name="button"><a class="simple" href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
+<br> 
+  <div class="error"
+    <div class="flash_alert">
+      <% if flash[:alert] %>
+      <%= flash[:alert] %>
+      <% end %>
+    </div>
