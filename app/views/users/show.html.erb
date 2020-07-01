@@ -1,7 +1,7 @@
 <h1 class="small"> Welcome, <%= @user.username%>!</h1>
 <br>
 <h2 class="blueish">Workouts Overview</h2>
-<h3>Total Workouts Logged: <%= @user.workouts.count %> </h3>
+<h3><b><u>Total Workouts Logged</u>: <%= @user.workouts.count %> </b> </h3>
 <br>
 <ul><% @user.workouts.each do |workout|%>
  <li class="standard"> <a href= "/workouts/<%= workout.id%>"> <%= workout.name %>

@@ -47,8 +47,13 @@ class UsersController < ApplicationController
   end 
   
   get '/users/:id' do
-    @user = User.find(params[:id])
-    erb :'/users/show.html'
+    if logged_in? 
+      @user = User.find(params[:id])
+      erb :'/users/show.html'
+     else
+      flash[:alert] = "Please login first"
+      erb :"users/login.html"
+    end
   end 
   
   get '/logout' do
