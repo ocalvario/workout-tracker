@@ -6,6 +6,7 @@ class ExercisesController < ApplicationController
     if logged_in?
       erb :"/exercises/new.html"
     else
+      flash[:alert] = "Please login first"
       redirect "/login"
     end 
   end
@@ -14,6 +15,7 @@ class ExercisesController < ApplicationController
      @user = current_user
      id = @user.id
      if params.any? {|k, v| v.empty?}
+       flash[:alert] = "Please enter all required fields"
        redirect "/exercises/new"
      else 
       @exercise = Exercise.create(
@@ -38,6 +40,7 @@ class ExercisesController < ApplicationController
     if @user.id == @exercise.user_id
       erb :"/exercises/show.html"
     else
+      flash[:alert] = "Access denied" 
       redirect "/workouts"
     end
   end
@@ -50,6 +53,7 @@ class ExercisesController < ApplicationController
     if @user.id == @exercise.user_id
       erb :"/exercises/edit.html"
     else
+      flash[:alert] = "Access denied" 
       redirect "/workouts"
     end
   end
