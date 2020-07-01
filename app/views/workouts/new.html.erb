@@ -1,15 +1,17 @@
-<h1>Add a New Workout</h1>
+<h1 class="small">Add a New Workout</h1>
 
 <form action="/workouts" method="POST">
-  <label> Workout Name </label>
-  <input type="text" name="name"> </br>
+  <br>
+  <li class="standard"> <label> <u><b>Workout Name</b></u>: </label>
+  <input type="text" name="name"> </br> </li>
 
-  <label> Workout Date </label>
-  <input type="text" name="date"> </br>
-
-  <input type="submit" value="Create">
+  <li class="standard"> <label> <u><b>Workout Date</b></u>: </label>
+  <input type="text" name="date"> </br> </li>
+<br>
+  <button class="popping"><input type="submit" value="Create"> </button>
 </form>
-<br> 
+<br>
+
   <div class="flash_alert">
         <% if flash[:alert] %>
         <%= flash[:alert] %>

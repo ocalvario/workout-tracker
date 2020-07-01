@@ -1,23 +1,23 @@
-
-<h1=small>Edit Your Exercise</h1>
+<h1 class="small">Edit Your Exercise</h1>
+<h2 class="blueish">Input Changes:</h2>
 
 <form action="/exercises/<%= @exercise.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <label>- New Exercise Name: </label>
-  <input type="text" value="<%=@exercise.name %>" name="name"> </br>
-  <label>- New Exercise Weight: </label>
-  <input type="number" value="<%=@exercise.weight %>" name="weight"> </br>
-  <label>- New Exercise Sets: </label>
-  <input type="number" value="<%=@exercise.sets %>" name="sets"> </br>
-  <label>- New Exercise Reps: </label>
-  <input type="number" value="<%=@exercise.reps %>" name="reps"> </br>
+  <li class="standard"><label><u><b>New Exercise Name</u></b>: </label>
+  <input type="text" value="<%=@exercise.name %>" name="name"> </br> </li>
+  <li class="standard"><label><u><b>New Exercise Weight</u></b>: </label>
+  <input type="number" value="<%=@exercise.weight %>" name="weight"> </br></li>
+  <li class="standard"><label><u><b>New Exercise Sets</u></b>: </label>
+  <input type="number" value="<%=@exercise.sets %>" name="sets"> </br></li>
+  <li class="standard"><label><u><b>New Exercise Reps</u></b>: </label>
+  <input type="number" value="<%=@exercise.reps %>" name="reps"> </br></li>
 
-  <label>- Associated Workout: </label>
+  <li class="standard"><label><u><b>Associated Workout</u></b>: </label>
   <select name="workout_id">
     <% current_user.workouts.each do |workout| %>
       <option value=<%=workout.id %>><%= workout.name %></option>
     <% end %>
-  </select>
-
+  </select></li>
+  <br>
   <input type="submit" value="Create">
 </form>

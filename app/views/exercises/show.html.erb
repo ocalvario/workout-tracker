@@ -8,9 +8,9 @@
 </ul>
 <br>
 <h2><i style="color:rgb(0,0,139)">Options</i></h2>
-      <button type="button" name="button"><a href="<%= @exercise.id %>/edit">Edit Exercise</a></button>
-       <button> <form action="/edit/<%= @exercise.id %>/delete" method="POST">
+      <button class="popping" type="button" name="button"><a class="simple"  href="<%= @exercise.id %>/edit">Edit Exercise</a></button>
+       <button class="popping"> <form action="/edit/<%= @exercise.id %>/delete" method="POST">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" name="submit" value="Delete Exercise" style="color:red">
         </form> </button>
-      <button type="button" name="button"><a href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
+      <button class="popping" type="button" name="button"><a class="simple" href="/workouts/<%= @exercise.workout_id %>">Back to Workout</a></button>
