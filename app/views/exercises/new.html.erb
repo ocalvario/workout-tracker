@@ -1,27 +1,35 @@
-<h1 class=small>Add a New Exercise</h1>
+<h1 class=small>Add A New Exercise</h1>
 
 <form action="/exercises" method="POST">
-  <li class="standard"><label><u><b>Exercise Name</u></b>: </label>
-  <input type="text" name="name"> </br>  </li>
-
-  <li class="standard"><label><u><b>Weight</u></b>: </label>
-  <input type="number" name="weight"> </br> </li>
-
-  <li class="standard"><label><u><b>Sets</u></b>: </label>
-  <input type="number" name="sets"> </br> </li>
-
-  <li class="standard"><label><u><b>Reps</u></b>: </label>
-  <input type="number" name="reps"> </br> </li>
-
-  <li class="standard"><label><u><b>Associated Workout</u></b>: </label>
-  <select name="workout_id">
-    <% current_user.workouts.each do |workout| %>
-      <option value=<%=workout.id %>><%= workout.name %></option>
-    <% end %> 
-    
-  </select> <br> </li>
-
-  <input type="submit" value="Create">
+<table>
+  <tr>  
+    <td><li class="standard">Exercise Name:</li></td>
+    <td> <input type="text" name="name"> </td>
+  </tr>
+  <tr>
+    <td><li class="standard">Weight:</li></td>
+    <td><input type="number" name="weight"></td>
+  </tr>
+  <tr>
+    <td> <li class="standard">Sets:</li></td>
+    <td> <input type="number" name="sets"> </td>
+  </tr>
+  <tr>
+    <td> <li class="standard">Reps:</li> </td>
+    <td><input type="number" name="reps"> </td>
+  </tr>
+  <tr>
+    <td> <li class="standard">Associated Workout:<li> </td>
+    <td>
+      <select name="workout_id">
+        <% current_user.workouts.each do |workout| %>
+          <option value=<%=workout.id %>><%= workout.name %></option>
+        <% end %>
+    </td>
+  </tr>
+</table>
+<br>
+<button type="submit" class="popping">Create</button>
 </form>
 <br> 
   <div class="error"

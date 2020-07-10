@@ -2,17 +2,21 @@
 <h2 class="blueish">Input Changes:</h2>
 
 <form action="/workouts/<%= @workout.id %>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <li class="standard"><label><u><b>Revised Workout Name</u></b>: </label>
-  <input type="text" value="<%=@workout.name %>" name="name"> </br> </li>
-
-  <li class="standard"><label><u><b> <label> Revised Workout Date</u></b>: </label>
-  <input type="text" value="<%=@workout.date %>"name="date"> </br> </li>
+<table>
+<input id="hidden" type="hidden" name="_method" value="patch">
+  <tr>
+    <td><li class="standard">Revised Workout Name:</li)</td>
+    <td><input type="text" value="<%=@workout.name %>" name="name"></td>
+  </tr>
+  <tr>  
+    <td> <li class="standard">Revised Workout Date:</li></td>
+    <td><input type="text" value="<%=@workout.date %>"name="date"></td>
+  </tr>
+</table>
   <br>
-  <input type="submit" value="Create">
-</form>
-<br>
-<button class="popping" type="button" name="button"><a class="simple" href="/workouts">Workout Index</a></button>
+  <button type="submit" class="popping"> Update </button>
+  <button class="popping"><a class="simple" href="/workouts">Workout Index</a></button>
+  </form>
 <br>
   <div class="error"
     <div class="flash_alert">

@@ -1,14 +1,18 @@
-<h1 class="small">Add a New Workout</h1>
+<h1 class="small">Add A New Workout</h1>
 
 <form action="/workouts" method="POST">
-  <br>
-  <li class="standard"> <label> <u><b>Workout Name</b></u>: </label>
-  <input type="text" name="name"> </br> </li>
-
-  <li class="standard"> <label> <u><b>Workout Date</b></u>: </label>
-  <input type="text" name="date"> </br> </li>
+<table>
+  <tr>
+    <td><li class="standard">Workout Name:</li></td>
+    <td><input type="text" name="name"> </td>
+  </tr>
+  <tr>
+    <td><li class="standard">Workout Date:</li></td>
+    <td><input type="text" name="date"> </td>
+  </tr>
+</table>
 <br>
-  <input type="submit" value="Create">
+  <button type="submit" class="popping">Create</button>
 </form>
 <br>
 

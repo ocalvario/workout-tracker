@@ -5,9 +5,10 @@
 
 <ul><% @workouts.each do |workout|%>
  <li class="standard"><a href= "/workouts/<%= workout.id%>"> <%= workout.name %>
-  (<%= workout.date %>) </a> </li>
-</ul>
+  (<%= workout.date %>) </a> 
+  </li>
 <% end %>
+</ul>
 <br>
 
 <h2 class="blueish">Options</h2>
