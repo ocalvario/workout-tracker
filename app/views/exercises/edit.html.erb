@@ -2,22 +2,34 @@
 <h2 class="blueish">Input Changes:</h2>
 
 <form action="/exercises/<%= @exercise.id %>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <li class="standard"><label>Revised Exercise Name: </label>
-  <input type="text" value="<%=@exercise.name %>" name="name"> </br> </li>
-  <li class="standard"><label>Revised Exercise Weight: </label>
-  <input type="number" value="<%=@exercise.weight %>" name="weight"> </br></li>
-  <li class="standard"><label>Revised Exercise Sets: </label>
-  <input type="number" value="<%=@exercise.sets %>" name="sets"> </br></li>
-  <li class="standard"><label>Revised Exercise Reps: </label>
-  <input type="number" value="<%=@exercise.reps %>" name="reps"> </br></li>
-
-  <li class="standard"><label><u><b>Revised Associated Workout</u></b>: </label>
-  <select name="workout_id">
-    <% current_user.workouts.each do |workout| %>
-      <option value=<%=workout.id %>><%= workout.name %></option>
-    <% end %>
-  </select></li>
+  <table>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <tr>
+      <td> <li class="standard">Revised Exercise Name: </li></td>
+      <td> <input type="text" value="<%=@exercise.name %>" name="name"> </td>
+    </tr>
+    <tr>
+      <td> <li class="standard">Revised Exercise Weight: </li> </td>
+      <td> <input type="number" value="<%=@exercise.weight %>" name="weight"> </td>
+    </tr>
+    <tr>
+      <td> <li class="standard">Revised Exercise Sets: </li> </td>
+      <td> <input type="number" value="<%=@exercise.sets %>" name="sets"> </td>
+    </tr>
+    <tr>
+      <td> <li class="standard">Revised Exercise Reps: </li> </td>
+      <td> <input type="number" value="<%=@exercise.reps %>" name="reps"> </td>
+    </tr>
+    <tr>
+      <td> <li class="standard">Revised Associated Workout: </li> </td>
+      <td>
+      <select name="workout_id">
+        <% current_user.workouts.each do |workout| %>
+          <option value=<%=workout.id %>><%= workout.name %></option>
+        <% end %>
+      </select></td>
+    </tr>
+  </table>
   <br>
   <button type="submit" class="popping">Update</button>
 </form>
