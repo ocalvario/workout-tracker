@@ -12,8 +12,6 @@ class ExercisesController < ApplicationController
   end
 
   post "/exercises" do
-     @user = current_user
-     id = @user.id
      if params.any? {|k, v| v.empty?}
        flash[:alert] = "Please enter all required fields"
        redirect "/exercises/new"
@@ -24,7 +22,7 @@ class ExercisesController < ApplicationController
         sets: params[:sets],
         reps: params[:reps],
         workout_id: params[:workout_id],
-        user_id: id
+        user_id: current_user.id
         )
       @workout = Workout.find(@exercise.workout_id)
       @workout.exercises << @exercise
@@ -36,9 +34,8 @@ class ExercisesController < ApplicationController
   
   get "/exercises/:id" do
     if logged_in?
-      @user = current_user
       @exercise = Exercise.find(params[:id])
-      if @user.id == @exercise.user_id
+      if current_user.id == @exercise.user_id
         erb :"/exercises/show.html"
       else
         flash[:alert] = "Access denied" 
@@ -54,9 +51,8 @@ class ExercisesController < ApplicationController
   
   get "/exercises/:id/edit" do
     if logged_in?
-      @user = current_user
       @exercise = Exercise.find(params[:id])
-      if @user.id == @exercise.user_id
+      if current_user.id == @exercise.user_id
         erb :"/exercises/edit.html"
       else
         flash[:alert] = "Access denied" 

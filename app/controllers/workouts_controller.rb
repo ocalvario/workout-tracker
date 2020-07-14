@@ -28,7 +28,6 @@ class WorkoutsController < ApplicationController
   
     get "/workouts" do
        if logged_in?
-        @user = current_user
         @workouts = current_user.workouts
         erb :"/workouts/index.html"
       else
